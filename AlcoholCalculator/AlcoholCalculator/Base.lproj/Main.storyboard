@@ -1,24 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u6p-BK-kTb">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AlcoholCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFc-f1-uRh">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AlcoCalculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emf-kx-hGE">
+                                        <rect key="frame" x="0.0" y="80" width="393" height="25"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="DkO-jJ-H2g"/>
+                                    <constraint firstAttribute="trailing" secondItem="emf-kx-hGE" secondAttribute="trailing" id="JXj-KF-YMi"/>
+                                    <constraint firstItem="emf-kx-hGE" firstAttribute="leading" secondItem="tFc-f1-uRh" secondAttribute="leading" id="p7M-AA-7nq"/>
+                                    <constraint firstItem="emf-kx-hGE" firstAttribute="top" secondItem="tFc-f1-uRh" secondAttribute="top" constant="80" id="t8w-CU-DsW"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5c0-ke-bJu">
+                                <rect key="frame" x="308" y="154" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MhR-uB-UKT"/>
+                                    <constraint firstAttribute="width" constant="50" id="rCF-yE-nAW"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="plusico_negate"/>
+                                <connections>
+                                    <segue destination="sxJ-xO-WjD" kind="show" id="pdB-MP-iia"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No saved calculations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4y-ir-KTQ">
+                                <rect key="frame" x="16" y="241" width="361" height="18"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="18"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5c0-ke-bJu" firstAttribute="top" secondItem="emf-kx-hGE" secondAttribute="bottom" constant="49" id="46E-oi-TOW"/>
+                            <constraint firstItem="tFc-f1-uRh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5ua-xH-bGy"/>
+                            <constraint firstItem="tFc-f1-uRh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="BC0-zd-KKd"/>
+                            <constraint firstItem="x4y-ir-KTQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RNQ-qg-rXT"/>
+                            <constraint firstItem="x4y-ir-KTQ" firstAttribute="top" secondItem="tFc-f1-uRh" secondAttribute="bottom" constant="61" id="Zbv-KA-8YW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5c0-ke-bJu" secondAttribute="trailing" constant="35" id="f4b-bQ-apZ"/>
+                            <constraint firstItem="tFc-f1-uRh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rGF-Ls-kHO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x4y-ir-KTQ" secondAttribute="trailing" constant="16" id="t0A-12-9gh"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="a7x-Gd-oGt"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="headerTitle" destination="tFc-f1-uRh" id="iFd-Yb-TIC"/>
+                        <outlet property="labelPreText" destination="x4y-ir-KTQ" id="D4d-kD-Yb5"/>
+                        <outlet property="newTestButton" destination="5c0-ke-bJu" id="rMd-ce-Ipl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1680" y="-592"/>
+        </scene>
+        <!--Data Entry View Controller-->
+        <scene sceneID="zG2-Zt-hCn">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="sxJ-xO-WjD" customClass="DataEntryViewController" customModule="AlcoholCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QoP-FM-rFM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SP7-XI-Lz0">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQB-M8-aCA">
+                                        <rect key="frame" x="0.0" y="80" width="393" height="25"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstItem="EQB-M8-aCA" firstAttribute="top" secondItem="SP7-XI-Lz0" secondAttribute="top" constant="80" id="9yo-Ak-XUy"/>
+                                    <constraint firstAttribute="trailing" secondItem="EQB-M8-aCA" secondAttribute="trailing" id="cwM-3N-rhn"/>
+                                    <constraint firstItem="EQB-M8-aCA" firstAttribute="leading" secondItem="SP7-XI-Lz0" secondAttribute="leading" id="wsi-TO-dYQ"/>
+                                    <constraint firstAttribute="height" constant="120" id="xyk-NP-NXO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FuT-OF-XHp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SP7-XI-Lz0" firstAttribute="leading" secondItem="FuT-OF-XHp" secondAttribute="leading" id="EEx-p8-QB7"/>
+                            <constraint firstItem="SP7-XI-Lz0" firstAttribute="trailing" secondItem="FuT-OF-XHp" secondAttribute="trailing" id="MIc-9M-i2o"/>
+                            <constraint firstItem="SP7-XI-Lz0" firstAttribute="top" secondItem="QoP-FM-rFM" secondAttribute="top" id="kDS-6R-iKj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wML-hf-l4l"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrv-MH-H5o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2489" y="-592"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VFa-h1-xUp">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="u6p-BK-kTb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mzK-Vo-FPU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7a6-Ch-O6G" kind="relationship" relationship="viewControllers" id="55A-Mq-gII"/>
+                        <segue destination="9Ux-hM-1Jr" kind="relationship" relationship="viewControllers" id="GA0-jb-xDS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJT-x0-SpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.824427480916029" y="-92.253521126760575"/>
+        </scene>
+        <!--FAQ-->
+        <scene sceneID="57i-iH-rQf">
+            <objects>
+                <viewController id="9Ux-hM-1Jr" customClass="FAQViewController" customModule="AlcoholCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ihq-o4-XeJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uch-uw-JRq">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZ2-UU-TCf">
+                                        <rect key="frame" x="0.0" y="80" width="393" height="25"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Isg-Mh-p59"/>
+                                    <constraint firstItem="tZ2-UU-TCf" firstAttribute="top" secondItem="uch-uw-JRq" secondAttribute="top" constant="80" id="bqD-gr-i3c"/>
+                                    <constraint firstItem="tZ2-UU-TCf" firstAttribute="leading" secondItem="uch-uw-JRq" secondAttribute="leading" id="cPE-qI-Ofj"/>
+                                    <constraint firstAttribute="trailing" secondItem="tZ2-UU-TCf" secondAttribute="trailing" id="neL-ew-zjt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lud-Te-5yv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uch-uw-JRq" firstAttribute="leading" secondItem="Lud-Te-5yv" secondAttribute="leading" id="LWb-O1-Scb"/>
+                            <constraint firstItem="uch-uw-JRq" firstAttribute="trailing" secondItem="Lud-Te-5yv" secondAttribute="trailing" id="VRv-Po-CS4"/>
+                            <constraint firstItem="uch-uw-JRq" firstAttribute="top" secondItem="ihq-o4-XeJ" secondAttribute="top" id="rYP-tf-F8P"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="FAQ" image="faq" id="Qkx-Og-yLd"/>
+                    <navigationItem key="navigationItem" id="spB-t6-WWs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQY-Gd-Fct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896.94656488549617" y="410.56338028169017"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="67a-eF-zQa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7a6-Ch-O6G" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="home 1" id="4NH-MT-cdi">
+                        <color key="badgeColor" name="AccentColor"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eoX-EC-VyZ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YCD-aH-f0E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h0g-p9-Dpz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896.94656488549617" y="-592.25352112676057"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="faq" width="30" height="30"/>
+        <image name="home 1" width="30" height="30"/>
+        <image name="plusico_negate" width="490" height="490"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
