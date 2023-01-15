@@ -9,10 +9,14 @@ import UIKit
 
 class DataEntryViewController: UIViewController {
 
+    @IBOutlet weak var headerTitle: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.navigationBar.isHidden = true
+        headerTitle.layer.cornerRadius = 20
+        headerTitle.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
 
