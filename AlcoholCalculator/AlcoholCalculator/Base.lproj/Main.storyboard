@@ -450,24 +450,59 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="calculateButton:" destination="sxJ-xO-WjD" eventType="touchUpInside" id="CEE-T2-8wc"/>
+                                                            <action selector="calculateButton:" destination="sxJ-xO-WjD" eventType="touchUpInside" id="osP-lb-Wah"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The calculation is going on" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFK-0f-8pm">
+                                                        <rect key="frame" x="16" y="36" width="361" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1rl-PU-rDR">
+                                                        <rect key="frame" x="16" y="105" width="361" height="4"/>
+                                                    </progressView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u0h-sm-2Uq">
+                                                        <rect key="frame" x="16" y="94" width="361" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0.15 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyC-Jp-fMw">
+                                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="‰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nt-JO-U0O">
+                                                                <rect key="frame" x="184.66666666666663" y="0.0" width="176.33333333333337" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="1rl-PU-rDR" firstAttribute="top" secondItem="OFK-0f-8pm" secondAttribute="bottom" constant="39" id="74c-Zy-XfJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="qwg-tb-gzd" secondAttribute="trailing" constant="16" id="9pF-XJ-bbU"/>
                                                     <constraint firstItem="QrG-Pt-hzh" firstAttribute="top" secondItem="94d-3y-dd5" secondAttribute="bottom" constant="7.6666666666666288" id="BrD-fb-MB4"/>
+                                                    <constraint firstItem="OFK-0f-8pm" firstAttribute="top" secondItem="Lxy-7y-jyr" secondAttribute="top" constant="36" id="Hsu-P7-PLn"/>
+                                                    <constraint firstItem="u0h-sm-2Uq" firstAttribute="leading" secondItem="Lxy-7y-jyr" secondAttribute="leading" constant="16" id="NfG-PA-V9C"/>
                                                     <constraint firstItem="QrG-Pt-hzh" firstAttribute="centerX" secondItem="Lxy-7y-jyr" secondAttribute="centerX" id="QRF-fz-KJo"/>
                                                     <constraint firstItem="qwg-tb-gzd" firstAttribute="top" secondItem="BKE-Qt-pVQ" secondAttribute="bottom" constant="8" symbolic="YES" id="b6F-t9-ggy"/>
                                                     <constraint firstItem="BKE-Qt-pVQ" firstAttribute="top" secondItem="Lxy-7y-jyr" secondAttribute="top" constant="8" id="gCw-Jo-APi"/>
                                                     <constraint firstItem="BKE-Qt-pVQ" firstAttribute="leading" secondItem="Lxy-7y-jyr" secondAttribute="leading" constant="16" id="gGS-z2-V5A"/>
+                                                    <constraint firstItem="u0h-sm-2Uq" firstAttribute="top" secondItem="OFK-0f-8pm" secondAttribute="bottom" constant="28" id="gHf-wv-V2c"/>
+                                                    <constraint firstItem="1rl-PU-rDR" firstAttribute="leading" secondItem="Lxy-7y-jyr" secondAttribute="leading" constant="16" id="gUz-uM-Rlq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OFK-0f-8pm" secondAttribute="trailing" constant="16" id="j9d-V3-GOM"/>
                                                     <constraint firstItem="C3p-Wd-FCz" firstAttribute="top" secondItem="qwg-tb-gzd" secondAttribute="bottom" constant="18.666666666666657" id="jBT-Dn-yMg"/>
                                                     <constraint firstItem="qwg-tb-gzd" firstAttribute="leading" secondItem="Lxy-7y-jyr" secondAttribute="leading" constant="16" id="l08-H1-wPg"/>
                                                     <constraint firstItem="94d-3y-dd5" firstAttribute="top" secondItem="C3p-Wd-FCz" secondAttribute="bottom" constant="23" id="lbg-vg-25d"/>
                                                     <constraint firstItem="C3p-Wd-FCz" firstAttribute="leading" secondItem="Lxy-7y-jyr" secondAttribute="leading" constant="16" id="nfo-yt-8Qe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1rl-PU-rDR" secondAttribute="trailing" constant="16" id="oFl-2R-Z4s"/>
+                                                    <constraint firstItem="OFK-0f-8pm" firstAttribute="leading" secondItem="Lxy-7y-jyr" secondAttribute="leading" constant="16" id="qf4-lN-QtF"/>
                                                     <constraint firstAttribute="trailing" secondItem="C3p-Wd-FCz" secondAttribute="trailing" constant="16" id="t49-dO-SaO"/>
                                                     <constraint firstItem="94d-3y-dd5" firstAttribute="leading" secondItem="Lxy-7y-jyr" secondAttribute="leading" constant="16" id="tfd-9R-QQW"/>
                                                     <constraint firstAttribute="trailing" secondItem="BKE-Qt-pVQ" secondAttribute="trailing" constant="16" id="uX8-JL-DMZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="u0h-sm-2Uq" secondAttribute="trailing" constant="16" id="v41-fZ-fmf"/>
                                                     <constraint firstAttribute="trailing" secondItem="94d-3y-dd5" secondAttribute="trailing" constant="16" id="xzp-KM-Puv"/>
                                                 </constraints>
                                             </view>
@@ -502,13 +537,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="wML-hf-l4l"/>
                     <connections>
+                        <outlet property="alcoholStackView" destination="C3p-Wd-FCz" id="BOM-Hm-0kz"/>
                         <outlet property="beer" destination="sTt-vL-hOS" id="FWg-4d-Hit"/>
                         <outlet property="cocktail" destination="59j-S0-K71" id="PUz-Hp-IRO"/>
+                        <outlet property="dateStackView" destination="94d-3y-dd5" id="7Le-a9-dr2"/>
                         <outlet property="hardAlcohol" destination="3D6-cg-lOV" id="HnS-qh-x3z"/>
                         <outlet property="headerTitle" destination="SP7-XI-Lz0" id="IOZ-Lz-lHs"/>
                         <outlet property="manOrWoman" destination="BKE-Qt-pVQ" id="27O-pf-6L4"/>
+                        <outlet property="progressView" destination="1rl-PU-rDR" id="AXg-uo-b8Y"/>
+                        <outlet property="quantityLabel" destination="oyC-Jp-fMw" id="G4O-2N-2wl"/>
+                        <outlet property="quantityStackView" destination="u0h-sm-2Uq" id="oFf-xp-6f4"/>
+                        <outlet property="textprogressView" destination="OFK-0f-8pm" id="Tvh-Sd-aBf"/>
                         <outlet property="timeDrink" destination="UDx-IG-tYU" id="1K4-jU-8KL"/>
                         <outlet property="weight" destination="QGh-dZ-Qi6" id="7ao-E6-RFH"/>
+                        <outlet property="weightStackView" destination="qwg-tb-gzd" id="rqV-Df-DVT"/>
                         <outlet property="wine" destination="7Db-Uv-Jls" id="ICe-gY-JXW"/>
                     </connections>
                 </viewController>

@@ -18,6 +18,15 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var timeDrink: UIDatePicker!
     @IBOutlet weak var manOrWoman: UISegmentedControl!
     
+    @IBOutlet weak var dateStackView: UIStackView!
+    @IBOutlet weak var alcoholStackView: UIStackView!
+    @IBOutlet weak var weightStackView: UIStackView!
+    
+    @IBOutlet weak var textprogressView: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var quantityStackView: UIStackView!
+    @IBOutlet weak var progressView: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +35,10 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
         headerTitle.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         timeDrink.minimumDate = NSDate(timeIntervalSinceNow: -86400) as Date
         timeDrink.maximumDate = NSDate.now as Date
+        
+        textprogressView.layer.isHidden = true
+        progressView.layer.isHidden = true
+        quantityStackView.layer.isHidden = true
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.hideKeyboardOnSwipeDown))
             swipeDown.delegate = self
@@ -46,7 +59,7 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
         weight.text = String(Int(sender.value))
     }
     
-    @IBAction func calculateButton(_ sender: Any) {
+    @IBAction func calculateButton(_ sender: UIButton) {
         
         if hardAlcohol.text?.isEmpty == true && wine.text?.isEmpty == true && beer.text?.isEmpty == true && cocktail.text?.isEmpty == true {
             
@@ -55,11 +68,32 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
             alert.addAction(okAction)
             present(alert, animated: true)
         } else {
+            manOrWoman.layer.isHidden = true
+            dateStackView.layer.isHidden = true
+            alcoholStackView.layer.isHidden = true
+            weightStackView.layer.isHidden = true
+            sender.layer.isHidden = true
+            
             calculateFunc()
         }
     }
     
     private func calculateFunc() {
+        
+        textprogressView.layer.isHidden = false
+        progressView.layer.isHidden = false
+        progressView.setProgress(0, animated: true)
+        let _ = Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { timer in
+            
+            if self.progressView.progress != 1 {
+                self.progressView.progress += 0.005
+            } else {
+                timer.invalidate()
+                self.textprogressView.text = "The number of ppm in the blood:"
+                self.progressView.layer.isHidden = true
+                self.quantityStackView.layer.isHidden = false
+            }
+        }
         
         // масса выпитого напитка
         var a = 0.0
@@ -98,7 +132,7 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
         let dateDiff = timeDrink.date.days(to: nowDate)
         
         let yourPPM = round((c - (Double(dateDiff) * 0.15)) * 100) / 100
-        print(yourPPM)
+        quantityLabel.text = String(yourPPM)
     }
     //
     /*
@@ -115,6 +149,6 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
 
 extension Date {
     func days(to secondDate: Date, calendar: Calendar = Calendar.current) -> Int {
-        return calendar.dateComponents([.hour], from: self, to: secondDate).hour! // Здесь force unwrap, так как в компонентах указали .day и берем day
+        return calendar.dateComponents([.hour], from: self, to: secondDate).hour!
     }
 }
