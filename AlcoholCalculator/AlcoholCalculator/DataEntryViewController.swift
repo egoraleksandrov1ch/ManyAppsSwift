@@ -8,7 +8,14 @@
 import UIKit
 
 class DataEntryViewController: UIViewController {
-
+    
+    @IBOutlet weak var dateTime: UIDatePicker!
+    @IBOutlet weak var cocktailText: UITextField!
+    @IBOutlet weak var beerText: UITextField!
+    @IBOutlet weak var wineText: UITextField!
+    @IBOutlet weak var hardAlcoholText: UITextField!
+    @IBOutlet weak var weight: UILabel!
+    @IBOutlet weak var gender: UISegmentedControl!
     @IBOutlet weak var headerTitle: UIView!
     
     override func viewDidLoad() {
@@ -18,8 +25,13 @@ class DataEntryViewController: UIViewController {
         headerTitle.layer.cornerRadius = 20
         headerTitle.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
-    
 
+    @IBAction func weightSelection(_ sender: Any) {
+    }
+    
+    @IBAction func buttonCalculation(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
