@@ -9,6 +9,8 @@ import UIKit
 
 class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    var yourPPM = 0.0
+    
     @IBOutlet weak var weight: UILabel!
     @IBOutlet weak var headerTitle: UIView!
     @IBOutlet weak var cocktail: UITextField!
@@ -18,14 +20,12 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var timeDrink: UIDatePicker!
     @IBOutlet weak var manOrWoman: UISegmentedControl!
     
-    @IBOutlet weak var dateStackView: UIStackView!
-    @IBOutlet weak var alcoholStackView: UIStackView!
-    @IBOutlet weak var weightStackView: UIStackView!
-    
+    @IBOutlet weak var scrollViewBlock: UIScrollView!
     @IBOutlet weak var textprogressView: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var quantityStackView: UIStackView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,7 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
         textprogressView.layer.isHidden = true
         progressView.layer.isHidden = true
         quantityStackView.layer.isHidden = true
+        saveButton.layer.isHidden = true
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.hideKeyboardOnSwipeDown))
             swipeDown.delegate = self
@@ -68,11 +69,7 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
             alert.addAction(okAction)
             present(alert, animated: true)
         } else {
-            manOrWoman.layer.isHidden = true
-            dateStackView.layer.isHidden = true
-            alcoholStackView.layer.isHidden = true
-            weightStackView.layer.isHidden = true
-            sender.layer.isHidden = true
+            scrollViewBlock.layer.isHidden = true
             
             calculateFunc()
         }
@@ -92,6 +89,7 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.textprogressView.text = "The number of ppm in the blood:"
                 self.progressView.layer.isHidden = true
                 self.quantityStackView.layer.isHidden = false
+                self.saveButton.layer.isHidden = false
             }
         }
         
@@ -131,8 +129,45 @@ class DataEntryViewController: UIViewController, UIGestureRecognizerDelegate {
         let nowDate = NSDate.now as Date
         let dateDiff = timeDrink.date.days(to: nowDate)
         
-        let yourPPM = round((c - (Double(dateDiff) * 0.15)) * 100) / 100
+        yourPPM = round((c - (Double(dateDiff) * 0.15)) * 100) / 100
+        if yourPPM < 0.00 { yourPPM = 0.00 }
         quantityLabel.text = String(yourPPM)
+    }
+    
+    func saveCalculation() {
+        
+        var hardAlcoholCalc: Int
+        if (Int(hardAlcohol.text!) ?? 0) > 0 {
+            hardAlcoholCalc = (Int(hardAlcohol.text!) ?? 0) / 50
+        } else {
+            hardAlcoholCalc = 0
+        }
+        var wineCalc: Int
+        if (Int(wine.text!) ?? 0) > 0 {
+            wineCalc = (Int(wine.text!) ?? 0) / 125
+        } else {
+            wineCalc = 0
+        }
+        var beerCalc: Int
+        if (Int(beer.text!) ?? 0) > 0 {
+            beerCalc = (Int(beer.text!) ?? 0) / 500
+        } else {
+            beerCalc = 0
+        }
+        var cocktailCalc: Int
+        if (Int(cocktail.text!) ?? 0) > 0 {
+            cocktailCalc = (Int(cocktail.text!) ?? 0) / 250
+        } else {
+            cocktailCalc = 0
+        }
+        let newCalculation = Calculation(manOrWoman: manOrWoman.selectedSegmentIndex,
+                                         weight: weight.text,
+                                         yourPPM: String(yourPPM),
+                                         hardAlcohol: String(hardAlcoholCalc),
+                                         wine: String(wineCalc),
+                                         beer: String(beerCalc),
+                                         cocktail: String(cocktailCalc))
+        StorageManager.saveObject(newCalculation)
     }
     //
     /*
