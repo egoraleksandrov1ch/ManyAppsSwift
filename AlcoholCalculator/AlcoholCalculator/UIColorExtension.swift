@@ -9,6 +9,6 @@ import UIKit
 
 extension UIColor {
     static var mainWhite: UIColor {
-        #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        UIColor(named: "tabbar")!
     }
 }

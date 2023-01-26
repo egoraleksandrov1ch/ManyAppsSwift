@@ -318,7 +318,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a71-5p-HEz">
-                                <rect key="frame" x="121.66666666666669" y="401" width="150" height="50"/>
+                                <rect key="frame" x="121.66666666666669" y="702" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="0.98999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AAa-uj-VZf"/>
@@ -539,16 +539,14 @@
                         <constraints>
                             <constraint firstItem="7ln-Ge-4mG" firstAttribute="leading" secondItem="FuT-OF-XHp" secondAttribute="leading" id="1oi-b3-s8g"/>
                             <constraint firstItem="1rl-PU-rDR" firstAttribute="top" secondItem="OFK-0f-8pm" secondAttribute="bottom" constant="25" id="53a-zi-kAA"/>
-                            <constraint firstItem="a71-5p-HEz" firstAttribute="centerX" secondItem="QoP-FM-rFM" secondAttribute="centerX" id="5Kr-jC-AU9"/>
+                            <constraint firstItem="a71-5p-HEz" firstAttribute="centerX" secondItem="QoP-FM-rFM" secondAttribute="centerX" id="5cd-Bj-fcW"/>
                             <constraint firstItem="FuT-OF-XHp" firstAttribute="trailing" secondItem="1rl-PU-rDR" secondAttribute="trailing" constant="16" id="5lg-rZ-cU3"/>
                             <constraint firstItem="SP7-XI-Lz0" firstAttribute="trailing" secondItem="FuT-OF-XHp" secondAttribute="trailing" id="AU2-k7-33I"/>
                             <constraint firstItem="OFK-0f-8pm" firstAttribute="leading" secondItem="FuT-OF-XHp" secondAttribute="leading" constant="16" id="B17-uQ-ymh"/>
-                            <constraint firstItem="a71-5p-HEz" firstAttribute="centerY" secondItem="QoP-FM-rFM" secondAttribute="centerY" id="GuL-r7-ji2"/>
-                            <constraint firstItem="a71-5p-HEz" firstAttribute="centerX" secondItem="QoP-FM-rFM" secondAttribute="centerX" id="H5g-qW-vs8"/>
                             <constraint firstItem="OFK-0f-8pm" firstAttribute="top" secondItem="SP7-XI-Lz0" secondAttribute="bottom" constant="30" id="IM0-1D-otG"/>
-                            <constraint firstItem="a71-5p-HEz" firstAttribute="centerY" secondItem="QoP-FM-rFM" secondAttribute="centerY" id="JK7-gA-hag"/>
                             <constraint firstItem="7ln-Ge-4mG" firstAttribute="top" secondItem="SP7-XI-Lz0" secondAttribute="bottom" id="Tid-os-lVt"/>
                             <constraint firstItem="7ln-Ge-4mG" firstAttribute="trailing" secondItem="FuT-OF-XHp" secondAttribute="trailing" id="UtI-Ku-7yN"/>
+                            <constraint firstItem="FuT-OF-XHp" firstAttribute="bottom" secondItem="a71-5p-HEz" secondAttribute="bottom" constant="17" id="Ylm-lN-PXJ"/>
                             <constraint firstItem="1rl-PU-rDR" firstAttribute="leading" secondItem="FuT-OF-XHp" secondAttribute="leading" constant="16" id="aba-6j-VmS"/>
                             <constraint firstItem="7ln-Ge-4mG" firstAttribute="bottom" secondItem="FuT-OF-XHp" secondAttribute="bottom" id="bfN-Px-T6K"/>
                             <constraint firstItem="u0h-sm-2Uq" firstAttribute="leading" secondItem="FuT-OF-XHp" secondAttribute="leading" constant="16" id="iy9-8q-xTi"/>

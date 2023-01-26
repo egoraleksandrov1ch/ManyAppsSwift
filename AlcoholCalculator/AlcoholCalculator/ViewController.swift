@@ -30,8 +30,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationController?.navigationBar.isHidden = true
         self.view.sendSubviewToBack(mainTableView)
         
-        labelPreText.isHidden = true
-        
     }
     
     @IBAction func unwindSegueHome(segue: UIStoryboardSegue) {
@@ -45,6 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.contentInset.top = 150
+        tableView.contentInset.bottom = 20
         return calculations.count
     }
     
@@ -52,6 +51,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
         cell.viewCell.layer.cornerRadius = 20
+        cell.layer.backgroundColor = UIColor.mainWhite.cgColor
+        
+        if calculations.count != 0 {
+            labelPreText.isHidden = true
+        }
         
         let calculation = calculations[indexPath.row]
         
@@ -72,18 +76,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Table view delegate
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        if editingStyle == .delete {
-////            let place = places[indexPath.row]
-////            StorageManager.deleteObject(place)
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
-//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            let calculation = calculations[indexPath.row]
+            StorageManager.deleteObject(calculation)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
     
 }
 

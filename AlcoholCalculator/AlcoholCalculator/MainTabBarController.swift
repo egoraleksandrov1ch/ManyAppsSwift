@@ -8,14 +8,20 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    
+    let heightScreenIphone = UIScreen.main.bounds
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.backgroundImage = UIImage()
-        tabBar.backgroundColor = .clear
-        tabBar.shadowImage = UIImage()
-        setTabBarAppearnce()
+        if heightScreenIphone.height > 800 {
+            tabBar.backgroundImage = UIImage()
+            tabBar.backgroundColor = .clear
+            tabBar.shadowImage = UIImage()
+            setTabBarAppearnce()
+        } else {
+            tabBar.backgroundColor = UIColor.mainWhite
+        }
     }
     
     private func setTabBarAppearnce() {
@@ -31,16 +37,16 @@ class MainTabBarController: UITabBarController {
             roundedRect: CGRect(
                 x: positionOnX,
                 y: tabBar.bounds.minY - positionOnY,
-                width: width, height: height
+                width: width,
+                height: height
             ),
             cornerRadius: height / 2
         )
         
         roundLayer.path = bezierPath.cgPath
-        
         tabBar.layer.insertSublayer(roundLayer, at: 0)
-        
         roundLayer.fillColor = UIColor.mainWhite.cgColor
+        
     }
 
 }
